@@ -1,0 +1,115 @@
+Первая часть первого  ДЗ  ))
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я:
+$ pwd
+
+2) Создать папку:
+$ mkdir folder-1
+
+3) Зайти в папку:
+$ cd folder-1/
+
+4) Создать 3 папки:
+$ mkdir d1 d2 d3
+
+5) Зайти в любую папку:
+$ cd d3
+
+6) Создать 5 файлов (3 txt, 2 json):
+$ touch file1.txt file2.txt file3.txt file4.json file5.json
+
+7) Создать 3 папки:
+$ mkdir dir{1..3}
+
+8) Вывести список содержимого папки:
+$ ls -la
+
+9) Открыть любой txt файл:
+$ vim file1.txt
+
+10) Написать туда что-нибудь, любой текст:
+i (INSERT) …typing text… 
+
+11) Сохранить и выйти
+Esc :wq
+
+12) Выйти из папки на уровень выше:
+$ cd ..
+
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку:
+$ mv ./d3/file2.txt ./d3/file3.txt ./d2
+
+14) Скопировать любые 2 файла, которые вы создали, в любую другую папку:
+$ cp ./d3/file4.json ./d3/file5.json ./d3/dir1
+
+15) Найти файл по имени:
+$ find -name file1.txt
+
+16) Просмотреть содержимое в реальном времени (команда grep) изучите как она работает:
+$ tail -f file1.txt
+
+17) Вывести несколько первых строк из текстового файла:
+$ head -n3 file1.txt
+
+18) Вывести несколько последних строк из текстового файла:
+$ tail -n5 file1.txt
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает:
+$ less file1.txt
+		// Q --> close less editor
+
+20) Вывести дату и время:
+$ date
+Wed Aug  2 19:48:18 RTZ 2023
+
+Задание *
+1) Отправить http запрос на сервер: http://162.55.220.72:5005/terminal-hw-request
+
+$ curl "http://162.55.220.72:5005/terminal-hw-request"
+
+                      //RESPONSE:
+		{
+		  "Intro": "Hello!! This is your the first response from server",
+		  "Tasks": {
+			"Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+			"result": [
+			  "Your_String",
+			  "Your_number"
+			]
+		  }
+		}
+
+
+$ curl "http://162.55.220.72:5005/get_method?name="Ivan"&age=35"
+ 
+                       //RESPONSE:
+		[
+		  "Ivan",
+		  "35"
+		]
+			   
+					   
+					   
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13:
+
+$ touch myscript.sh
+$ vim myscript.sh
+i (INSERT) 
+#!/bin/bash
+cd dir_3
+mkdir folder1 folder2 folder3
+cd folder1
+touch file1.txt file2.txt file3.txt file1.json file2.json
+mkdir dir_1 dir_2 dir_3
+ls -la
+mv file1.txt file2.txt dir_1
+
+Esc :wq
+
+./myscript.sh
+
+        OR
+		
+chmod +x ./ myscript.sh    // - сделать файл исполняемым
+./myscript.sh              // - выполнить скрипт через запуск файла
