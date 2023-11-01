@@ -189,7 +189,7 @@
 	
  36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
 	1st version: ~$ grep -l -r sec *.txt | xargs -t -p -i mv {} ./dir_22/
-	2nd version: ~$ grep -l -r sec *.txt | xargs mv -t ./dir_22/
+	2nd version: ~$ grep -l -r sec *.txt | xargs -p mv -t ./dir_22/
 	
 	опции для xargs: 
 	- чтобы вывести вторую команду на терминал перед ее выполнением — используем опцию -t или --verbose;
